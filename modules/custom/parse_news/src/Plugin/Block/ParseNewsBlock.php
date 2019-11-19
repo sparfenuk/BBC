@@ -10,11 +10,11 @@ use Drupal\Core\Block\BlockBase;
  * @package Drupal\parse_news\Plugin\Block
  * provides ParseNewsBlock on node page
  *
- * @Block{
- *  id="parse_news_block",
- *  admin_label="Parsed news",
- *  category="parse_news",
- * }
+ * @Block (
+ *  id = "parse_news",
+ *  admin_label = "Parsed news",
+ *  category = "parse_news",
+ * )
  */
 class ParseNewsBlock extends BlockBase
 {
