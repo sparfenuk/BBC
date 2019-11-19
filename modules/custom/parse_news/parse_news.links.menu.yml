@@ -1,0 +1,5 @@
+entity.parse_news.overview:
+  title: Parse news
+  parent: system.admin_structure
+  description: 'List of parse newses to extend site functionality.'
+  route_name: entity.parse_news.collection

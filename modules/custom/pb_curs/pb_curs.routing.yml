@@ -1,0 +1,23 @@
+pb_curs.example:
+  path: '/pb-curs/example'
+  defaults:
+    _title: 'Example'
+    _controller: '\Drupal\pb_curs\Controller\PbCursController::build'
+  requirements:
+    _permission: 'access content'
+
+pb_curs.settings_form:
+  path: '/admin/config/system/pb-curs'
+  defaults:
+    _title: 'PBCurs settings'
+    _form: 'Drupal\pb_curs\Form\SettingsForm'
+  requirements:
+    _permission: 'administer pb_curs configuration'
+
+pb_curs.update:
+  path: '/admin/cron/curs_update'
+  defaults:
+    _title: 'PBCurs update'
+    _controller: '\Drupal\pb_curs\Controller\PbCursController::cursRefresh'
+  requirements:
+    _permission: 'administer pb_curs configuration'

@@ -1,0 +1,10 @@
+name: "Parse news"
+description: "Module to get nodes from other sites"
+core: 8.x
+type: module
+package: parse_news
+core_version_requirement: ^8 || ^9
+configure: parse_news.parse_news
+dependencies:
+  - block
+  - node

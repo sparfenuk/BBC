@@ -1,0 +1,69 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the PBCurs module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function pb_curs_install() {
+  \Drupal::messenger()->addStatus(__FUNCTION__);
+
+   Drupal\pb_curs\Controller\PBCursController::cronUpdate();
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function pb_curs_uninstall() {
+  \Drupal::messenger()->addStatus(__FUNCTION__);
+}
+
+/**
+ * Implements hook_schema().
+ */
+function pb_curs_schema() {
+  $schema['pb_curs'] = [
+    'description' => 'Table description.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'Primary Key: Unique record ID.',
+      ],
+      'currency' => [
+        'description' => 'Three letters which defines currency',
+        'type' => 'varchar',
+        'not null' => TRUE,
+        'length' => 4,
+      ],
+      'base_currency' => [
+        'description' => 'Three letters which defines currency to compare',
+        'type' => 'varchar',
+        'not null' => TRUE,
+         'length' => 4,
+      ],
+      'sale' => [
+        'type' => 'float',
+        'not null' => TRUE,
+        'description' => 'Currency sale rate',
+      ],
+      'purchase' => [
+        'type' => 'float',
+        'not null' => TRUE,
+        'description' => 'Currency purchase rate',
+      ],
+      'date' => [
+        'type' => 'varchar',
+        'not null' => false,
+        'description' => 'Timestamp when the record was created.',
+        'length' => '64'
+      ],
+    ],
+    'primary key' => ['id'],
+  ];
+
+  return $schema;
+}

@@ -1,0 +1,13 @@
+entity.prase_news.view:
+  title: View
+  route_name: entity.prase_news.canonical
+  base_route: entity.prase_news.canonical
+entity.prase_news.edit_form:
+  title: Edit
+  route_name: entity.prase_news.edit_form
+  base_route: entity.prase_news.canonical
+entity.prase_news.delete_form:
+  title: Delete
+  route_name: entity.prase_news.delete_form
+  base_route: entity.prase_news.canonical
+  weight: 10

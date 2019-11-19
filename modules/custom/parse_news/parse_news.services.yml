@@ -1,0 +1,4 @@
+services:
+  parse_news:
+    class: Drupal\parse_news\ParseNewsService
+    arguments: ['@entity_type.manager']

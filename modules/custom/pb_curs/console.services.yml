@@ -1,0 +1,6 @@
+services:
+  pb_curs.pb_curs_refresh:
+    class: Drupal\pb_curs\Command\PBCursCommand
+    arguments: []
+    tags:
+      - { name: drupal.command }

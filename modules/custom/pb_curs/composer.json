@@ -1,0 +1,21 @@
+{
+    "name": "org/pb_curs",
+    "description": "This extension provides new module which shows currency rate in site header.",
+    "type": "drupal-drush",
+    "authors": [
+        {
+            "name": "Parfeniuk Serhii",
+            "email": "sparfenuk13@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.x"
+    },
+    "extra": {
+        "drush": {
+            "services": {
+                "drush.services.yml": "^9"
+            }
+        }
+    }
+}

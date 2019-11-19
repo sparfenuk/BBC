@@ -1,0 +1,6 @@
+services:
+  parse_news:
+    class: Drupal\parse_news\Command\ParseNewsCommand
+    arguments: []
+    tags:
+      - { name: drupal.command }

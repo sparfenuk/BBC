@@ -1,0 +1,22 @@
+parse_news.*:
+  type: config_entity
+  label: Parse news
+  mapping:
+    id:
+      type: string
+      label: ID
+    site_url:
+      type: string
+      lable: Url to page with list of articles
+    x_path_to_href:
+      type: string
+      label: xpath to links on article at page with list of articles
+    x_path_to_title:
+      type: string
+      label: xpath to title of article on one article page
+    xpath_to_content:
+      type: string
+      label: xpath to content of article on one article page
+    xpath_to_image:
+      type: string
+      label: xpath to image src on one article page

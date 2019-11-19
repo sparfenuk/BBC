@@ -1,0 +1,6 @@
+name: PB curs block
+type: module
+description: Defines a block placed above header which outputs curs of dollar and euro.
+core: 8.x
+dependencies:
+  - block

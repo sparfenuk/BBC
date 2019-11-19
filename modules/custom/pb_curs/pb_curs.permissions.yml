@@ -1,0 +1,4 @@
+administer pb_curs configuration:
+  title: 'Administer pb_curs configuration'
+  description: 'Optional description.'
+  restrict access: true

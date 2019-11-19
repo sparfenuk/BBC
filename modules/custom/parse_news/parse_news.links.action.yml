@@ -1,0 +1,5 @@
+entity.parse_news.add_form:
+  route_name: 'entity.parse_news.add_form'
+  title: 'Add parse news'
+  appears_on:
+    - entity.parse_news.collection

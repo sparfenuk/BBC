@@ -1,0 +1,21 @@
+{
+    "name": "org/parse_news",
+    "description": "This extension provides new commands for Drush which parsing news from external site.",
+    "type": "drupal-drush",
+    "authors": [
+        {
+            "name": "Parfeniuk Serhii",
+            "email": "sparfenuk13@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.0"
+    },
+    "extra": {
+        "drush": {
+            "services": {
+                "drush.services.yml": "^9"
+            }
+        }
+    }
+}

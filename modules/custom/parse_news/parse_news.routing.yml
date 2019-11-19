@@ -1,0 +1,39 @@
+entity.parse_news.collection:
+  path: '/admin/structure/parse-news'
+  defaults:
+    _entity_list: 'parse_news'
+    _title: 'Parse news configuration'
+  requirements:
+    _permission: 'administer parse_news'
+
+entity.parse_news.add_form:
+  path: '/admin/structure/parse_news/add'
+  defaults:
+    _entity_form: 'parse_news.add'
+    _title: 'Add a parse news'
+  requirements:
+    _permission: 'administer parse_news'
+
+entity.parse_news.edit_form:
+  path: '/admin/structure/parse-news/{parse_news}'
+  defaults:
+    _entity_form: 'parse_news.edit'
+    _title: 'Edit a parse news'
+  requirements:
+    _permission: 'administer parse_news'
+
+entity.parse_news.delete_form:
+  path: '/admin/structure/parse-news/{parse_news}/delete'
+  defaults:
+    _entity_form: 'parse_news.delete'
+    _title: 'Delete a parse news'
+  requirements:
+    _permission: 'administer parse_news'
+
+entity.parse_news.refresh:
+  path: '/admin/cron/parse-news/update'
+  defaults:
+    _title: 'PBCurs update'
+    _controller: '\Drupal\parse_news\Controller\ParseNewsController::startParse'
+  requirements:
+    _permission: 'administer pb_curs configuration'
