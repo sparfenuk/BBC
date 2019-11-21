@@ -9,16 +9,7 @@
  * Implements hook_install().
  */
 function pb_curs_install() {
-  \Drupal::messenger()->addStatus(__FUNCTION__);
-
-   Drupal\pb_curs\Controller\PBCursController::cronUpdate();
-}
-
-/**
- * Implements hook_uninstall().
- */
-function pb_curs_uninstall() {
-  \Drupal::messenger()->addStatus(__FUNCTION__);
+ \Drupal::service('pb_curs')->cursRefresh();
 }
 
 /**

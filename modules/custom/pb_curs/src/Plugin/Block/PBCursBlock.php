@@ -19,20 +19,11 @@ class PBCursBlock extends BlockBase {
    * {@inheritdoc}
    */
   public function build() {
-    $query = \Drupal::database()->select('pb_curs');
-    $query->fields('pb_curs', ['sale', 'purchase']);
-    $query->condition('currency', 'EUR');
-    $query->orderBy('pb_curs.id', "DESC");
-    $EUR = $query->execute()->fetchObject();$query = \Drupal::database()->select('pb_curs');
 
-    $query->fields('pb_curs', ['sale', 'purchase']);
-    $query->condition('currency', 'USD');
-    $query->orderBy('pb_curs.id', "DESC");
-    $USD = $query->execute()->fetchObject();
-
+    $currencies = \Drupal::service('pb_curs')->getCurrencies();
     $build['content'] = [
       '#type' => 'item',
-      '#markup' => $this->t("USD: {$USD->purchase} / {$USD->sale}  EUR: {$EUR->purchase} / {$EUR->sale}"),
+      '#markup' => $currencies,
     ];
 
     return $build;

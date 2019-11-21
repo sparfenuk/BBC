@@ -1,5 +1,3 @@
 services:
-  pb_curs.command:
-    class: Drupal\pb_curs\Command\CursRefreshCommand
-    tags:
-      - { name: pb_curs.command }
+  pb_curs:
+    class: Drupal\pb_curs\PBCursService

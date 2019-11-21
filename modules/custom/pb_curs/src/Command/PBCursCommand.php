@@ -30,7 +30,7 @@ class PBCursCommand extends Command {
    * {@inheritdoc}
    */
   protected function execute(InputInterface $input, OutputInterface $output) {
-    PBCursController::cronUpdate();
+    \Drupal::service('pb_curs')->cursRefresh();
   }
 
 }
