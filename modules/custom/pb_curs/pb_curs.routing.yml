@@ -10,6 +10,6 @@ pb_curs.update:
   path: '/admin/cron/curs_update'
   defaults:
     _title: 'PBCurs update'
-    _controller: '\Drupal\pb_curs\Controller\PbCursController::cursRefresh'
+    _controller: '\Drupal\pb_curs\Controller\PBCursController::cursRefresh'
   requirements:
     _permission: 'administer pb_curs configuration'

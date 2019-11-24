@@ -2,7 +2,6 @@
 
 namespace Drupal\pb_curs\Command;
 
-use Drupal\pb_curs\Controller\PBCursController;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Drupal\Console\Core\Command\Command;
