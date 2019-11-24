@@ -30,7 +30,8 @@ class PBCursCommand extends Command {
    * {@inheritdoc}
    */
   protected function execute(InputInterface $input, OutputInterface $output) {
-    \Drupal::service('pb_curs')->cursRefresh();
+    $message = \Drupal::service('pb_curs')->cursRefresh();
+    $output->writeln($message);
   }
 
 }

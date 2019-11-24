@@ -2,6 +2,7 @@
 
 namespace Drupal\parse_news\Command;
 
+use Drupal\parse_news\ParseNewsService;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Drupal\Console\Core\Command\Command;
@@ -29,9 +30,10 @@ class ParseNewsCommand extends Command {
    * {@inheritdoc}
    */
   protected function execute(InputInterface $input, OutputInterface $output) {
+    /** @var $parse ParseNewsService  */
    $parse = \Drupal::service('parse_news');
-   $parse->parseNews();
-   $output->writeln('News successfully parsed!');
+   $message = $parse->parseNews();
+   $output->writeln($message);
   }
 
 }

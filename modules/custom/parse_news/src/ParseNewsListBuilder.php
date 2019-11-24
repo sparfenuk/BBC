@@ -4,6 +4,7 @@ namespace Drupal\parse_news;
 
 use Drupal\Core\Config\Entity\ConfigEntityListBuilder;
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Url;
 
 /**
  * Provides a listing of parse newses.

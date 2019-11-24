@@ -1,5 +1,5 @@
 services:
-  parse_news:
+  parse_news.command:
     class: Drupal\parse_news\Command\ParseNewsCommand
     arguments: []
     tags:

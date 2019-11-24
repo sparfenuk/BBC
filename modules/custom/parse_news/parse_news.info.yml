@@ -6,5 +6,4 @@ package: parse_news
 core_version_requirement: ^8 || ^9
 configure: parse_news.parse_news
 dependencies:
-  - block
   - node

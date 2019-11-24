@@ -6,7 +6,7 @@ namespace Drupal\pb_curs;
 class PBCursService
 {
 
-  public function cursRefresh(): void
+  public function cursRefresh(): string
   {
     $date = date('d.m.Y');
     $json = file_get_contents('https://api.privatbank.ua/p24api/exchange_rates?json&date=' . $date);
@@ -27,13 +27,11 @@ class PBCursService
             ])->execute();
 
         } catch (\Exception $e) {
-          echo 'database error occurred';
-          echo $e->getMessage();
-          exit();
+          return $e->getMessage();
         }
       }
     }
-    echo 'Currencies successfully updated!';
+    return 'Currencies successfully updated!';
   }
 
 
@@ -52,4 +50,6 @@ class PBCursService
 
     return "USD: {$USD->purchase} / {$USD->sale}  EUR: {$EUR->purchase} / {$EUR->sale}";
   }
+
+
 }

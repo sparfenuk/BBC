@@ -138,15 +138,4 @@ class PBCurs extends ContentEntityBase
     }
     return true;
   }
-
-  public function getAllAsArray(): array {
-    return [
-      'id' => self::getId(),
-      'currency' => self::getCurrency(),
-      'base_currency' => self::getBaseCurrency(),
-      'sale' => self::getSale(),
-      'purchase' => self::getPurchase(),
-      'date' => self::getDate(),
-    ];
-  }
 }

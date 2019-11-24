@@ -3,7 +3,7 @@
 
 namespace Drupal\parse_news;
 
-use Drupal\Core\Entity\EntityTypeManager;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\node\Entity\Node;
 use Drupal\node\NodeInterface;
 use Symfony\Component\DomCrawler\Crawler;
@@ -13,18 +13,18 @@ class ParseNewsService
 
   private $entityTypeManager;
 
-  public function __construct(EntityTypeManager $entityTypeManager)
+  public function __construct(EntityTypeManagerInterface $entityTypeManager)
   {
     $this->entityTypeManager = $entityTypeManager;
   }
 
-  public function ParseNews()
+  public function parseNews()
   {
     $parseNews = $this->entityTypeManager
       ->getStorage('parse_news')
       ->loadMultiple();
 
-
+    $message = '';
 
     foreach ($parseNews as $article) {
       try {
@@ -71,8 +71,7 @@ class ParseNewsService
                 ],
               ]);
               $parsedMaterial->enforceIsNew();
-            }
-            else {
+            } else {
               if (is_array($parsedMaterial)) {
                 $parsedMaterial = array_shift($parsedMaterial);
               }
@@ -92,27 +91,24 @@ class ParseNewsService
             }
 
             $parsedMaterial->save();
-          }
-          catch (\Exception $e) {
-            print_r('article exception, line:' . $e->getLine());
-            print_r($e->getMessage());
-
+          } catch (\Exception $e) {
+            $message .= /*'article exception, line:' . $e->getLine() . "\r\n" . $e->getMessage() . "\r\n". $e->getFile(). "\r\n" .*/ $e->getTraceAsString();
           }
         }
 
       } catch (\Exception $e) {
-        print_r('parse exception, line:' . $e->getLine());
-        print_r($e->getMessage());
-
+        $message .= 'parse exception, line:' . $e->getLine() . "\r\n" . $e->getMessage() . "\r\n";
       }
     }
-    print_r('News successfully parsed');
+    $message .= 'News parsed';
+    return $message;
   }
 
-  private function validateLink(string &$link, string $baseSiteUrl){
+  private function validateLink(string &$link, string $baseSiteUrl)
+  {
     if (strpos($link, 'http') === false) {
       $site = parse_url($baseSiteUrl);
-      $link = $site['scheme'].'://' . $site['host'] . $link;
+      $link = $site['scheme'] . '://' . $site['host'] . $link;
     }
   }
 }
